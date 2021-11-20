@@ -2,3 +2,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .dropdown:hover ul.menu {
+    max-height: 100vh;
+    overflow: visible;
+  }
+}
