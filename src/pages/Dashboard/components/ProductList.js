@@ -6,12 +6,14 @@ import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 const ProductList = ({ items = [""] }) => {
   const [translate, setTranslate] = useState(0);
   const [elementCount, setelementCount] = useState(0);
-  const page = Math.ceil(items.length / elementCount);
+  const page = Math.ceil(18 / elementCount);
 
   useEffect(() => {
     const getElementCount = () => {
       const size = window.innerWidth;
-      if (size >= 640 && size < 1024) {
+      if (size < 640) {
+        setTranslate(0);
+      } else if (size >= 640 && size < 1024) {
         setelementCount(2);
       } else if (size >= 1024 && size < 1280) {
         setelementCount(3);
@@ -70,6 +72,74 @@ const ProductList = ({ items = [""] }) => {
         className="flex flex-row items-center transition-all"
       >
         {/* map in item here */}
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
+        <ProductItem
+          model="11"
+          className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
+        />
         <ProductItem
           model="11"
           className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1 "
