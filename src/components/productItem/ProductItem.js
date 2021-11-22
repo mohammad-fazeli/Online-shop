@@ -9,12 +9,16 @@ const ProductItem = ({
   Discount = 0,
   deadline = "0:0:0",
   src = "",
+  className,
 }) => {
   const priceBeforoff = (price * 100) / (100 - Discount);
 
   return (
-    <div className="w-60 bg-White rounded-lg px-2 pb-2 min-h-84">
-      <img src={src} className="w-44 mx-auto h-44" alt="productimage" />
+    <div
+      dir="ltr"
+      className={`w-60 min-w-64 bg-White rounded-lg px-2 pb-2 min-h-84 ${className}`}
+    >
+      <img src={src} className="w-44 mx-auto h-44 border" alt="productimage" />
       <p dir="rtl" className="text-sm min-h-12 ">
         {model}
       </p>
