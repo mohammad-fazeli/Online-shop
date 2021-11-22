@@ -23,11 +23,20 @@ module.exports = {
       Lalezar: ["Lalezar", "sans"],
       Scheherazade: ["Scheherazade", "Lalezar", "sans"],
     },
+    gridTemplateColumns: {
+      amazing: "11rem auto",
+      amazing_sm: "14rem auto",
+    },
     minWidth: {
       1024: "1024px",
       640: "640px",
       1280: "1280px",
       1536: "1536px",
+      64: "15rem",
+      "1/2": "48%",
+      "1/3": "32.31%",
+      "1/4": "24.23%",
+      "1/5": "19.38%",
       full: "100%",
     },
     minHeight: {
