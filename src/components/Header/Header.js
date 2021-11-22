@@ -9,7 +9,7 @@ const Header = () => {
   const show = useScroolUp();
 
   return (
-    <header className="fixed top-0 w-full bg-White shadow-sm pt-4 pb-1 px-2.5 sm:flex sm:flex-col items-center">
+    <header className="fixed z-50 top-0 w-full bg-White shadow-sm pt-4 pb-1 px-2.5 sm:flex sm:flex-col items-center">
       <div className="sm:min-w-640 lg:min-w-1024 xl:min-w-1280 2xl:min-w-1536">
         <div className="flex justify-between items-center pb-2">
           <div className="flex gap-2.5 ">
