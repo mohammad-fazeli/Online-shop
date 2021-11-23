@@ -9,7 +9,7 @@ const DropDown = ({ title = "", items = [] }) => {
           <DropDownItem
             key={index}
             name={item.name}
-            subvision={item.subvision}
+            subvision={item.subdivision}
             address={item.address}
           />
         ))}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DropDown from "./DropDown";
-const Nav = ({ show }) => {
+const Nav = ({ show, items = [] }) => {
   const [open, setOpen] = useState(false);
   return (
     <nav
@@ -31,24 +31,7 @@ const Nav = ({ show }) => {
           <span className="h-0.5 w-7 bg-titeltext"></span>
           <span className="h-0.5 w-7 bg-titeltext"></span>
         </div>
-        <DropDown
-          title="دسته بندی"
-          items={[
-            { name: "لپ تاپ", subvision: [], address: "/cart" },
-            { name: "موبایل", subvision: [], address: "/" },
-            {
-              name: "مد و پوشاک",
-              address: "/",
-              subvision: [
-                { name: "لباس مردانه", address: "/" },
-                { name: "لباس زنانه", address: "/" },
-                { name: "کفش مردانه", address: "/" },
-                { name: "کفش مردانه", address: "/" },
-              ],
-            },
-            { name: "کتاب", subvision: [], address: "/" },
-          ]}
-        />
+        <DropDown title="دسته بندی" items={items} />
         <div className="text-lg cursor-pointer hover:text-Backgroundsecondary">
           فروشنده شوید
         </div>
