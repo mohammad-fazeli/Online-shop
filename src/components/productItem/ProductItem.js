@@ -16,14 +16,14 @@ const ProductItem = ({
   return (
     <div
       dir="ltr"
-      className={`w-60 min-w-64 bg-White rounded-lg px-2 pb-2 min-h-84 ${className}`}
+      className={`w-60 min-w-64 bg-White rounded-lg p-2 py-2  ${className}`}
     >
       <img
         src={src}
-        className="w-44 mx-auto h-44 border cursor-pointer"
+        className="w-44 mx-auto h-44 cursor-pointer"
         alt="productimage"
       />
-      <p dir="rtl" className="text-sm min-h-12 cursor-pointer">
+      <p dir="rtl" className="text-sm h-12 cursor-pointer mt-2">
         {model}
       </p>
       {Rated ? (
@@ -37,7 +37,7 @@ const ProductItem = ({
       <div className="my-2">
         {Discount !== 0 ? (
           <>
-            <span className="bg-Backgroundsecondary inline-block h-5 text-White rounded-xl px-1 mr-1">
+            <span className="bg-Backgroundsecondary inline-block h-5 text-White rounded-xl px-1 mr-1 ">
               {Discount}%
             </span>
             <span className="text-disabletext line-through">
@@ -47,10 +47,14 @@ const ProductItem = ({
         ) : (
           ""
         )}
-        <br />
-        <span dir="rtl">{price.toLocaleString()} تومان</span>
+
+        <span dir="rtl" className="block text-left">
+          {price.toLocaleString()} تومان
+        </span>
       </div>
-      {deadline !== "0:0:0" ? <DeadLine deadline={deadline} /> : null}
+      {deadline !== "0:0:0" && deadline ? (
+        <DeadLine deadline={deadline} />
+      ) : null}
     </div>
   );
 };
