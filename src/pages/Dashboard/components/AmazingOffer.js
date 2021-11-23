@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../../components/button/Button";
-import ProductList from "./ProductList";
+import ProductList from "../../../components/ProductList/ProductList";
 
 const AmazingOffer = () => {
   return (
