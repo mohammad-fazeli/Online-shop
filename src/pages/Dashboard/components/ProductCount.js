@@ -5,7 +5,7 @@ const ProductCount = () => {
   return (
     <div
       dir="rtl"
-      className="w-full bg-White shadow-sm mt-5 rounded-lg pt-3 pb-2"
+      className="w-full bg-White shadow-md mt-5 rounded-lg pt-3 pb-2"
     >
       <h1 className="text-titeltext text-4xl  text-center">
         پیش از 400 کالا در دسته بندی های مختلف
