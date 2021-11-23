@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../components/footer/Footer";
 import Header from "../../components/Header/Header";
 import ProductListByTitle from "../../components/ProductListbytitle/ProductListByTitle";
 import AmazingOffer from "./components/AmazingOffer";
@@ -19,6 +20,7 @@ const DashboardContainer = () => {
         </div>
         <ProductListByTitle title="منتخب جدیدترین کالاها" />
       </div>
+      <Footer />
     </div>
   );
 };
