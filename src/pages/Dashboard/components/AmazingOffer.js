@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../../components/button/Button";
 import ProductList from "../../../components/ProductList/ProductList";
 
-const AmazingOffer = () => {
+const AmazingOffer = ({ items }) => {
   return (
     <div className="bg-Backgroundsecondary w-screen h-96 flex overflow-x-auto">
       <div
@@ -14,7 +14,7 @@ const AmazingOffer = () => {
           <Button text="مشاهده همه" className="mt-5" />
         </div>
         <div className="sm:overflow-hidden">
-          <ProductList btnShowAll={true} />
+          <ProductList btnShowAll={true} items={items} />
         </div>
       </div>
     </div>

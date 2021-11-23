@@ -6,7 +6,7 @@ import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 const ProductList = ({ items = [""], classNameItem, btnShowAll = false }) => {
   const [translate, setTranslate] = useState(0);
   const [elementCount, setelementCount] = useState(0);
-  const page = Math.ceil(18 / elementCount);
+  const page = Math.ceil(items.length / elementCount);
 
   useEffect(() => {
     const getElementCount = () => {
@@ -32,7 +32,7 @@ const ProductList = ({ items = [""], classNameItem, btnShowAll = false }) => {
   }, []);
 
   useEffect(() => {
-    if (page < translate + 1) {
+    if (page < translate + 1 && page > 0) {
       setTranslate(page - 1);
     }
   }, [page, translate]);
@@ -71,122 +71,21 @@ const ProductList = ({ items = [""], classNameItem, btnShowAll = false }) => {
         style={{ transform: `translateX(${translate * 100}%)` }}
         className="flex flex-row items-center transition-all"
       >
-        {/* map in item here */}
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
+        {items.map((item, index) => (
+          <ProductItem
+            model={item.model}
+            key={index}
+            src={item.images}
+            Rated={item.Rated}
+            price={item.price}
+            Discount={item.Discount}
+            deadline={item.deadline}
+            className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
+              classNameItem ? classNameItem : ""
+            }`}
+          />
+        ))}
 
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
-        <ProductItem
-          model="111111111"
-          className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-            classNameItem ? classNameItem : ""
-          }`}
-        />
         {btnShowAll ? <Button text="مشاهده همه" className="sm:hidden" /> : ""}
       </div>
     </div>
