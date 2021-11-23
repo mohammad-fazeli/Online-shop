@@ -4,7 +4,7 @@ import DeadLine from "./components/DeadLine";
 
 const ProductItem = ({
   model = "",
-  Rated = 0,
+  Rated,
   price = 0,
   Discount = 0,
   deadline = "0:0:0",
@@ -18,14 +18,22 @@ const ProductItem = ({
       dir="ltr"
       className={`w-60 min-w-64 bg-White rounded-lg px-2 pb-2 min-h-84 ${className}`}
     >
-      <img src={src} className="w-44 mx-auto h-44 border" alt="productimage" />
-      <p dir="rtl" className="text-sm min-h-12 ">
+      <img
+        src={src}
+        className="w-44 mx-auto h-44 border cursor-pointer"
+        alt="productimage"
+      />
+      <p dir="rtl" className="text-sm min-h-12 cursor-pointer">
         {model}
       </p>
-      <p className="flex gap-1 my-2">
-        <FaStar className="text-star text-lg" />
-        <span className="text-sm text-disabletext">{Rated}</span>
-      </p>
+      {Rated ? (
+        <p className="flex gap-1 my-2">
+          <FaStar className="text-star text-lg" />
+          <span className="text-sm text-disabletext">{Rated}</span>
+        </p>
+      ) : (
+        ""
+      )}
       <div className="my-2">
         {Discount !== 0 ? (
           <>
