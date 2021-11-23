@@ -50,7 +50,6 @@ const DropDownItem = ({ name = "", address = "", subvision = [] }) => {
               className="text-bodytext hover:text-Backgroundsecondary"
               key={index}
             >
-              {console.log(item)}
               <Link to={item.address}>{item.name}</Link>
             </li>
           ))}

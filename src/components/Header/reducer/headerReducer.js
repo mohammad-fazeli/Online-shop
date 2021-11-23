@@ -8,8 +8,6 @@ const initState = {
 const headerReducer = (state = initState, action) => {
   switch (action.type) {
     case Types.FETCH_CATEGORY:
-      console.log("s");
-
       return {
         ...state,
         fetching: true,

@@ -8,12 +8,11 @@ import Select from "./components/Select";
 import useScroolUp from "../../costomhooks/useScrool/useScroolup";
 import { fetchCategory } from "./Actions/HeaderActions";
 
-const Header = ({ fetchCategory, header }) => {
+const Header = ({ fetchCategory, category }) => {
   useEffect(() => {
     fetchCategory();
   }, [fetchCategory]);
   const show = useScroolUp();
-  console.log(header);
   return (
     <header className="fixed z-50 top-0 w-full bg-White shadow-sm pt-4 pb-1 px-2.5 sm:flex sm:flex-col items-center">
       <div className="sm:min-w-640 lg:min-w-1024 xl:min-w-1280 2xl:min-w-1536">
@@ -27,13 +26,13 @@ const Header = ({ fetchCategory, header }) => {
             <Select />
           </div>
         </div>
-        <Nav show={show} items={header.category} />
+        <Nav show={show} items={category} />
       </div>
     </header>
   );
 };
 const mapStateToProps = ({ header }) => {
-  return { header };
+  return { category: header.category };
 };
 
 const mapDispatchToProps = {
