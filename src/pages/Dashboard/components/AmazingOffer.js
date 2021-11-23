@@ -13,7 +13,9 @@ const AmazingOffer = () => {
           <img src="/img/amazingoffer.png" alt="" />
           <Button text="مشاهده همه" className="mt-5" />
         </div>
-        <ProductList />
+        <div className="sm:overflow-hidden">
+          <ProductList btnShowAll={true} />
+        </div>
       </div>
     </div>
   );
