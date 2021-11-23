@@ -1,15 +1,18 @@
 import React from "react";
 import Header from "../../components/Header/Header";
+import ProductListByTitle from "../../components/ProductListbytitle/ProductListByTitle";
 import AmazingOffer from "./components/AmazingOffer";
 import ProductCount from "./components/ProductCount";
 
 const DashboardContainer = () => {
   return (
-    <div className="pt-32">
+    <div className="pt-32 overflow-hidden">
       <Header />
       <AmazingOffer />
-      <div className="min-w-full sm:min-w-640 sm:max-w-sm lg:min-w-1024 lg:max-w-lg xl:min-w-1280 xl:max-w-xl 2xl:min-w-1536 2xl:max-w-2xl mx-auto">
+      <div className="w-11/12 sm:min-w-640 sm:max-w-sm lg:min-w-1024 lg:max-w-lg xl:min-w-1280 xl:max-w-xl 2xl:min-w-1536 2xl:max-w-2xl mx-auto">
         <ProductCount />
+        <ProductListByTitle title="پرفروش های هفته" />
+        <ProductListByTitle title="منتخب جدیدترین کالاها" />
       </div>
     </div>
   );
