@@ -5,7 +5,7 @@ const initState = {
   Bestsellers: [],
   newest: [],
   fetching: false,
-  eroor: null,
+  error: null,
 };
 
 const dashboardReducer = (state = initState, action) => {

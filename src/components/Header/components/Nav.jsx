@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router";
 import DropDown from "./DropDown";
+
 const Nav = ({ show, items = [] }) => {
   const [open, setOpen] = useState(false);
+  const { category } = useParams();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useMemo(() => setOpen(false), [category]);
+
   return (
     <nav
       dir="rtl"
@@ -32,6 +39,11 @@ const Nav = ({ show, items = [] }) => {
           <span className="h-0.5 w-7 bg-titeltext"></span>
         </div>
         <DropDown title="دسته بندی" items={items} />
+        <Link to="/">
+          <div className="text-lg cursor-pointer hover:text-Backgroundsecondary">
+            صفحه اصلی
+          </div>
+        </Link>
         <div className="text-lg cursor-pointer hover:text-Backgroundsecondary">
           فروشنده شوید
         </div>

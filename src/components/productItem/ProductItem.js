@@ -10,17 +10,25 @@ const ProductItem = ({
   deadline = "0:0:0",
   src = "",
   className,
+  border = false,
+  shadow = false,
+  availability = true,
 }) => {
   const priceBeforoff = (price * 100) / (100 - Discount);
 
   return (
     <div
       dir="ltr"
-      className={`w-60 min-w-64 bg-White rounded-lg p-2 py-2  ${className}`}
+      className={`w-60 min-w-64 bg-White rounded-lg p-2 py-2 min-h-84 hover:z-20
+      ${border && "border border-border"} ${
+        shadow && "hover:shadow-sm transition-all"
+      } ${className}`}
     >
       <img
         src={src}
-        className="w-44 mx-auto h-44 cursor-pointer"
+        className={`w-44 mx-auto h-44 cursor-pointer ${
+          !availability && "filter grayscale"
+        }`}
         alt="productimage"
       />
       <p dir="rtl" className="text-sm h-12 cursor-pointer mt-2">
@@ -44,11 +52,12 @@ const ProductItem = ({
               {priceBeforoff.toLocaleString()}
             </span>
           </>
-        ) : (
-          ""
-        )}
+        ) : null}
 
         <span dir="rtl" className="block text-left">
+          {!availability && (
+            <span className="text-Backgroundsecondary mx-2">موجود نیست</span>
+          )}
           {price.toLocaleString()} تومان
         </span>
       </div>

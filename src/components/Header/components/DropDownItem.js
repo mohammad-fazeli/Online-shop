@@ -19,7 +19,9 @@ const DropDownItem = ({ name = "", address = "", subvision = [] }) => {
         onClick={() => setOpen(!open)}
         className="cursor-pointer flex items-center gap-2 text-lg"
       >
-        <Link to={subvision.length === 0 ? address : ""}>{name}</Link>
+        <Link to={subvision.length === 0 ? "/products/" + address : ""}>
+          {name}
+        </Link>
 
         <div className={`flex ${subvision.length === 0 ? "hidden" : ""}`}>
           <span
@@ -43,14 +45,14 @@ const DropDownItem = ({ name = "", address = "", subvision = [] }) => {
           className={`${open ? "max-h-96" : "max-h-0"} transition-all`}
         >
           <li className="mb-2 text-bodytext hover:text-Backgroundsecondary">
-            <Link to={address}>همه محصولات</Link>
+            <Link to={"/products/" + address}>همه محصولات</Link>
           </li>
           {subvision.map((item, index) => (
             <li
               className="text-bodytext hover:text-Backgroundsecondary"
               key={index}
             >
-              <Link to={item.address}>{item.name}</Link>
+              <Link to={"/products/" + item.address}>{item.name}</Link>
             </li>
           ))}
         </ul>

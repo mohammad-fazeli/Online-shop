@@ -6,7 +6,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="min-h-screen bg-Backgroundprimary font-Lalezar text-bodytext">
+    <div className="bg-Backgroundprimary font-Lalezar text-bodytext">
       <Provider store={store}>
         <AppRoutes />
       </Provider>

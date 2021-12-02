@@ -3,7 +3,7 @@ import ProductItem from "../productItem/ProductItem";
 import Button from "../button/Button";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 
-const ProductList = ({ items = [""], classNameItem, btnShowAll = false }) => {
+const ProductList = ({ items = [""], shadow = false, btnShowAll = false }) => {
   const [translate, setTranslate] = useState(0);
   const [elementCount, setelementCount] = useState(0);
   const page = Math.ceil(items.length / elementCount);
@@ -80,9 +80,8 @@ const ProductList = ({ items = [""], classNameItem, btnShowAll = false }) => {
             price={item.price}
             Discount={item.Discount}
             deadline={item.deadline}
-            className={`sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2 ${
-              classNameItem ? classNameItem : ""
-            }`}
+            shadow={shadow}
+            className="sm:min-w-1/2 lg:min-w-1/3 xl:min-w-1/4 2xl:min-w-1/5 mx-1/2"
           />
         ))}
 

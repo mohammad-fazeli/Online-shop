@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-//import Routes
 import DashboardContainer from "../../pages/Dashboard/DashboardContainer";
 import CartContainer from "../../pages/Cart/CartContainer";
 import ProductsContainer from "../../pages/Products/ProductsContainer";
@@ -16,7 +15,11 @@ const AppRoutes = () => {
       <Routes>
         <Route exact path="/" element={<DashboardContainer />} />
         <Route exact path="/cart" element={<CartContainer />} />
-        <Route exact path="/products" element={<ProductsContainer />} />
+        <Route
+          exact
+          path="/products/:category"
+          element={<ProductsContainer />}
+        />
         <Route exact path="/product" element={<ProductContainer />} />
         <Route exact path="/Checkout" element={<CheckoutContainer />} />
         <Route exact path="/login" element={<LoginContainer />} />

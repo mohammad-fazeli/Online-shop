@@ -5,8 +5,10 @@ import apiMiddleware from "./middleware";
 
 import headerReducer from "../../components/Header/reducer/headerReducer";
 import dashboardReducer from "../../pages/Dashboard/reducer/dashboardReducer";
+import productsReducer from "../../pages/Products/reducer/productsReducer";
 
 const redusers = combineReducers({
+  products: productsReducer,
   header: headerReducer,
   dashboard: dashboardReducer,
 });

@@ -8,10 +8,7 @@ const ProductListByTitle = ({ title, items }) => {
         {title}
       </h1>
       <div className="overflow-x-auto sm:overflow-x-hidden py-4">
-        <ProductList
-          classNameItem="hover:shadow-sm hover:z-20 transition-all"
-          items={items}
-        />
+        <ProductList shadow={true} items={items} />
       </div>
     </div>
   );
