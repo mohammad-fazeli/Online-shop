@@ -73,6 +73,7 @@ const ProductList = ({ items = [""], shadow = false, btnShowAll = false }) => {
       >
         {items.map((item, index) => (
           <ProductItem
+            address={`/product/${item.category}/${item.id}`}
             model={item.model}
             key={index}
             src={item.images}

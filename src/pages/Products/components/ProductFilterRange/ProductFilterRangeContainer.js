@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MultiRangeSlider from "./MultiRangeSlider";
 import Button from "../../../../components/button/Button";
 
@@ -6,6 +6,10 @@ const ProductFilterRangeContainer = ({ min = 0, max = 1234, dispatch }) => {
   const [open, setOpen] = useState(true);
   const [mint, setMint] = useState(0);
   const [maxt, setMaxt] = useState(0);
+
+  useEffect(() => {
+    dispatch({ type: "range", data: { min: min, max: max } });
+  }, [dispatch, max, min]);
 
   const clickHandler = () => {
     dispatch({ type: "range", data: { min: mint, max: maxt } });

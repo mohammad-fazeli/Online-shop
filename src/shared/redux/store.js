@@ -6,9 +6,11 @@ import apiMiddleware from "./middleware";
 import headerReducer from "../../components/Header/reducer/headerReducer";
 import dashboardReducer from "../../pages/Dashboard/reducer/dashboardReducer";
 import productsReducer from "../../pages/Products/reducer/productsReducer";
+import productReducer from "../../pages/Product/reducer/productReducer";
 
 const redusers = combineReducers({
   products: productsReducer,
+  product: productReducer,
   header: headerReducer,
   dashboard: dashboardReducer,
 });

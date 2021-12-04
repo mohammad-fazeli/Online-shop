@@ -20,7 +20,11 @@ const AppRoutes = () => {
           path="/products/:category"
           element={<ProductsContainer />}
         />
-        <Route exact path="/product" element={<ProductContainer />} />
+        <Route
+          exact
+          path="/product/:category/:id"
+          element={<ProductContainer />}
+        />
         <Route exact path="/Checkout" element={<CheckoutContainer />} />
         <Route exact path="/login" element={<LoginContainer />} />
         <Route exact path="/signup" element={<SignUpContainer />} />

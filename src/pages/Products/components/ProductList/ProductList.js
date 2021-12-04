@@ -23,6 +23,7 @@ const ProductList = ({ products }) => {
       <div className="flex justify-center mt-3 flex-wrap gap-1 sm:justify-end sm:mt-0">
         {result.map((product) => (
           <ProductItem
+            address={`/product/${product.category}/${product.id}`}
             model={product.model}
             Rated={product.Rated}
             price={product.price}

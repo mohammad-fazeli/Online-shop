@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import DeadLine from "./components/DeadLine";
 
@@ -13,6 +14,7 @@ const ProductItem = ({
   border = false,
   shadow = false,
   availability = true,
+  address = "",
 }) => {
   const priceBeforoff = (price * 100) / (100 - Discount);
 
@@ -24,16 +26,20 @@ const ProductItem = ({
         shadow && "hover:shadow-sm transition-all"
       } ${className}`}
     >
-      <img
-        src={src}
-        className={`w-44 mx-auto h-44 cursor-pointer ${
-          !availability && "filter grayscale"
-        }`}
-        alt="productimage"
-      />
-      <p dir="rtl" className="text-sm h-12 cursor-pointer mt-2">
-        {model}
-      </p>
+      <Link to={address}>
+        <img
+          src={src}
+          className={`w-44 mx-auto h-44 ${!availability && "filter grayscale"}`}
+          alt="productimage"
+        />
+      </Link>
+
+      <Link to={address}>
+        <p dir="rtl" className="text-sm h-12 mt-2">
+          {model}
+        </p>
+      </Link>
+
       {Rated ? (
         <p className="flex gap-1 my-2">
           <FaStar className="text-star text-lg" />

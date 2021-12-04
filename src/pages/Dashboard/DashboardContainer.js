@@ -34,8 +34,8 @@ const DashboardContainer = ({
         <ProductCount />
         <ProductListByTitle title="پرفروش های هفته" items={bestsellers} />
         <div className="flex flex-col justify-center sm:flex-row sm:gap-3.5">
-          <Baner src="img/book.png" />
-          <Baner src="img/mobile.png" />
+          <Baner src="img/book.png" to="/products/book" />
+          <Baner src="img/mobile.png" to="/products/mobile" />
         </div>
         <ProductListByTitle title="منتخب جدیدترین کالاها" items={newest} />
       </div>
