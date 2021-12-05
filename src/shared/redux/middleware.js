@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const basedURL = "http://localhost:3200";
+const basedURL = "https://limitless-fjord-58440.herokuapp.com";
 
 const handleSuccess = ({ response, type, next, reduxData }) => {
   next({

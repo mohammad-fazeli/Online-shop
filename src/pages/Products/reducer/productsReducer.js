@@ -13,6 +13,7 @@ const productsReducer = (state = initState, action) => {
     case Types.FETCH_PRODUCTS_DATA:
       return {
         ...state,
+        products: [],
         fetching: true,
       };
     case Types.FETCH_PRODUCTS_DATA_SUCCESS:

@@ -10,6 +10,7 @@ import ProductFilterRangeContainer from "./components/ProductFilterRange/Product
 import ProductList from "./components/ProductList/ProductList";
 import SubdivisionList from "./components/SubdivisionList/SubdivisionList";
 import { FaRegWindowClose } from "react-icons/fa";
+import ReactLoading from "react-loading";
 import {
   fetchProductsData,
   fetchProductsfilter,
@@ -79,14 +80,27 @@ const ProductsContainer = ({
   return (
     <div className="relative pt-32">
       <Header />
-      <div className="w-full text-right pr-5 sm:hidden ">
-        <Button
-          text="جستوجوی پیشرفته"
-          background="blue"
-          border={false}
-          onclick={() => setOpen(true)}
-        />
-      </div>
+      {products.fetching ? (
+        <div className="w-full min-h-84 flex justify-center items-center">
+          <ReactLoading
+            className="ReactLoading"
+            type={"spinningBubbles"}
+            color={"#4B566B"}
+            height={"auto"}
+            width={200}
+          />
+        </div>
+      ) : (
+        <div className="w-full text-right pr-5 sm:hidden ">
+          <Button
+            text="جستوجوی پیشرفته"
+            background="blue"
+            border={false}
+            onclick={() => setOpen(true)}
+          />
+        </div>
+      )}
+
       <div className=" w-11/12 2xl:min-w-1536 2xl:max-w-2xl mx-auto">
         {products.subdivision.length !== 0 && (
           <SubdivisionList subdivision={products.subdivision} />
