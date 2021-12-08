@@ -77,7 +77,7 @@ const LoginContainer = () => {
                   }`}
                 />
                 <div
-                  className="absolute top-9 left-4 text-2xl cursor-pointer"
+                  className="absolute top-9 left-4 text-2xl cursor-pointer text-btnblue"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
