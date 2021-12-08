@@ -9,7 +9,7 @@ module.exports = {
         Backgroundsecondary: "#E3364E",
         Backgroundfooter: "#F6F9FC",
         Backgroundfooterinput: "#0C2A4D",
-        btnBlue:'#4285F4',
+        btnblue: "#4285F4",
         titeltext: "#2B3445",
         border: "#E5E5E5",
         bodytext: "#4B566B",

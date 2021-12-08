@@ -141,7 +141,7 @@ const SignUpContainer = () => {
           <Button
             text="ثبت نام با حساب گوگل"
             className="w-full h-full"
-            background="btnBlue"
+            background="btnblue"
           />
         </div>
 

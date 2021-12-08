@@ -94,7 +94,7 @@ const LoginContainer = () => {
           <Button
             text="ادامه با حساب گوگل"
             className="w-full h-full"
-            background="btnBlue"
+            background="btnblue"
           />
         </div>
         <Link to="/signup" className="mb-1">
