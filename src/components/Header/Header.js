@@ -13,13 +13,15 @@ const Header = ({ fetchCategory, category }) => {
     fetchCategory();
   }, [fetchCategory]);
   const show = useScroolUp();
+  const user = JSON.parse(localStorage.getItem("user"));
+
   return (
     <header className="fixed z-50 top-0 w-full bg-White shadow-sm pt-4 pb-1 px-2.5 sm:flex sm:flex-col items-center">
       <div className="sm:min-w-640 w-11/12 2xl:min-w-1536 2xl:max-w-2xl mx-auto">
         <div className="flex justify-between items-center pb-2">
           <div className="flex gap-2.5 ">
             <CartIcon cartCount={0} />
-            <Login isLogin={true} userName="mohammad" />
+            <Login isLogin={user} userName={user?.name} />
           </div>
           <div className="w-8/12 text-right sm:flex sm:justify-end">
             <Search />

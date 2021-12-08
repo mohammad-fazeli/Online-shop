@@ -4,6 +4,7 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 
 const Button = ({
   text = "",
+  type = "button",
   border = true,
   background = "Backgroundsecondary",
   link = "",
@@ -18,8 +19,9 @@ const Button = ({
   return (
     <>
       {count === 0 ? (
-        <Link to={link}>
+        link === "" ? (
           <button
+            type={type}
             onClick={onclick}
             disabled={disabled}
             className={`${className} ${
@@ -28,7 +30,20 @@ const Button = ({
           >
             {text}
           </button>
-        </Link>
+        ) : (
+          <Link to={link}>
+            <button
+              type={type}
+              onClick={onclick}
+              disabled={disabled}
+              className={`${className} ${
+                border ? "border" : ""
+              } bg-${background} text-lg rounded-lg px-3 py-1 text-White disabled:opacity-50 disabled:cursor-not-allowed`}
+            >
+              {text}
+            </button>
+          </Link>
+        )
       ) : (
         <div className={`flex items-center ${className}`}>
           <button
