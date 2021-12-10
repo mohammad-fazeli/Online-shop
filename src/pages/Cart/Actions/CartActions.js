@@ -23,3 +23,10 @@ export const remove = (id) => {
     data: id,
   };
 };
+
+export const clear = (id) => {
+  return {
+    type: Types.CLEAR,
+    isEndpointCall: false,
+  };
+};

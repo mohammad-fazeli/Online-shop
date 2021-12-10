@@ -4,12 +4,16 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/footer/Footer";
 import Button from "../../components/button/Button";
 import CartItem from "./components/CartItem";
+import ReactModal from "react-modal";
 import { increase, decrease, remove } from "./Actions/CartActions";
 
 const CartContainer = ({ cart = [], increase, decrease, remove }) => {
   const [totalPriceBeforeOff, setTotalPriceBeforeOff] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalDiscount, setTotalDiscount] = useState(0);
+  const [isOpen, setOpen] = useState(false);
+
+  const isLogin = localStorage.getItem("user") ? true : false;
 
   useEffect(() => {
     setTotalPrice(0);
@@ -32,8 +36,45 @@ const CartContainer = ({ cart = [], increase, decrease, remove }) => {
     });
   }, [cart]);
 
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
+  };
+
   return (
     <div className="pt-32">
+      <ReactModal
+        style={customStyles}
+        isOpen={isOpen}
+        onRequestClose={() => {
+          setOpen(false);
+        }}
+      >
+        <div>
+          <h1>برای ادامه باید وارد شوید</h1>
+          <div className="flex flex-col gap-3 pt-2">
+            <Button
+              text="ورود"
+              border={false}
+              className="w-full"
+              link="/login"
+            />
+            <Button
+              text="ثبت نام"
+              link="/signup"
+              border={false}
+              background="btnblue"
+              className="w-full"
+            />
+          </div>
+        </div>
+      </ReactModal>
       <Header />
       <div className=" w-11/12  xl:min-w-1280 xl:max-w-7xl mx-auto">
         <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-8 min-h-96 relative">
@@ -49,7 +90,14 @@ const CartContainer = ({ cart = [], increase, decrease, remove }) => {
                     تومان
                   </span>
                 </div>
-                <Button text="ادامه فرایند خرید" border={false} />
+                <Button
+                  text="ادامه فرایند خرید"
+                  link={isLogin && "/checkout"}
+                  border={false}
+                  onclick={() => {
+                    !isLogin && setOpen(true);
+                  }}
+                />
               </div>
 
               <div
@@ -87,6 +135,10 @@ const CartContainer = ({ cart = [], increase, decrease, remove }) => {
                 </p>
                 <div className="w-full mt-5">
                   <Button
+                    onclick={() => {
+                      !isLogin && setOpen(true);
+                    }}
+                    link={isLogin && "/checkout"}
                     text="ادامه فرایند خرید"
                     border={false}
                     className="w-full"
@@ -98,7 +150,7 @@ const CartContainer = ({ cart = [], increase, decrease, remove }) => {
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-3">
               <img
                 src="/img/empty-cart.png"
-                className="=  sm:w-80"
+                className="sm:w-80"
                 alt="empty-cart"
               />
               <p className="text-2xl">سبد خريد خالی است </p>
