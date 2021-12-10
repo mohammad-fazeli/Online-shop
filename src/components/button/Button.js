@@ -12,7 +12,7 @@ const Button = ({
   onclick = () => {},
   onclickPlus = () => {},
   onclickMinus = () => {},
-  max = 3,
+  max = 5,
   disabled = false,
   className = "",
 }) => {
@@ -51,16 +51,16 @@ const Button = ({
             disabled={count + 1 === max || disabled}
             className={`${
               border ? "border" : ""
-            } bg-${background}  rounded-lg px-2 py-2 text-White disabled:opacity-50 disabled:cursor-not-allowed`}
+            } bg-${background}  rounded-lg px-1 sm:px-2 py-1 sm:py-2 text-White disabled:opacity-50 disabled:cursor-not-allowed`}
           >
             <FaPlus />
           </button>
-          <span className="text-White mx-2 text-2xl">{count}</span>
+          <span className="mx-2 text-2xl">{count}</span>
           <button
             onClick={onclickMinus}
             className={`${
               border ? "border" : ""
-            } bg-${background}  rounded-lg px-2 py-2 text-White`}
+            } bg-${background}  rounded-lg px-1 sm:px-2 py-1 sm:py-2 text-White`}
           >
             <FaMinus />
           </button>

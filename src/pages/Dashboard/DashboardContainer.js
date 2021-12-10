@@ -30,7 +30,7 @@ const DashboardContainer = ({
     <div className="pt-32 overflow-hidden">
       <Header />
       <AmazingOffer items={amazingoffer} />
-      <div className="w-11/12 sm:min-w-640 sm:max-w-sm lg:min-w-1024 lg:max-w-lg xl:min-w-1280 xl:max-w-xl 2xl:min-w-1536 2xl:max-w-2xl mx-auto">
+      <div className=" w-11/12 2xl:min-w-1536 2xl:max-w-2xl mx-auto">
         <ProductCount />
         <ProductListByTitle title="پرفروش های هفته" items={bestsellers} />
         <div className="flex flex-col justify-center sm:flex-row sm:gap-3.5">

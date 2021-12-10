@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import ImageGallery from "react-image-gallery";
 import { useParams } from "react-router-dom";
 import { fetchProduct } from "./Actions/ProductActions";
+import { increase, decrease } from "../Cart/Actions/CartActions";
 
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/Header/Header";
@@ -12,14 +13,39 @@ import ReactLoading from "react-loading";
 import Button from "../../components/button/Button";
 import Details from "./components/Details";
 
-const ProductContainer = ({ product, fetchProduct, fetching }) => {
+const ProductContainer = ({
+  product,
+  fetchProduct,
+  fetching,
+  increase,
+  decrease,
+  cart = [],
+}) => {
   const [state, setState] = useState(false);
+  const [count, setCount] = useState(0);
   const { category, id } = useParams();
+
   useEffect(() => {
     fetchProduct(category, id);
   }, [category, fetchProduct, id]);
 
+  useEffect(() => {
+    const index = cart.findIndex((element) => element.id === product.id);
+    setCount(cart[index]?.count);
+  }, [cart, product.id]);
+
   const priceBeforoff = (product.price * 100) / (100 - product.Discount);
+
+  const addToCart = () => {
+    const data = {
+      image: product.images[0].original,
+      model: product.model,
+      price: product.price,
+      Discount: product.Discount,
+      id: product.id,
+    };
+    increase(data);
+  };
   return (
     <div className="pt-32">
       <Header />
@@ -70,6 +96,16 @@ const ProductContainer = ({ product, fetchProduct, fetching }) => {
               <div>{product.price?.toLocaleString()} تومان </div>
               <div>{product.availability ? "موجود در انبار" : "ناموجود"}</div>
               <Button
+                count={count}
+                onclick={() => {
+                  addToCart();
+                }}
+                onclickPlus={() => {
+                  addToCart();
+                }}
+                onclickMinus={() => {
+                  decrease(product.id);
+                }}
                 text="افزودن به سبد خرید"
                 disabled={!product.availability}
                 className="mt-4"
@@ -90,10 +126,14 @@ const ProductContainer = ({ product, fetchProduct, fetching }) => {
   );
 };
 
-const mapStateToProps = ({ product }) => {
-  return { product: product.product, fetching: product.fetching };
+const mapStateToProps = ({ product, cart }) => {
+  return {
+    product: product.product,
+    fetching: product.fetching,
+    cart: cart.cartList,
+  };
 };
 
-const mapDispatchToProps = { fetchProduct };
+const mapDispatchToProps = { fetchProduct, increase, decrease };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer);

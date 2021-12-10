@@ -49,6 +49,7 @@ module.exports = {
         11: "2.75rem",
         80: "20rem",
         84: "21.5rem",
+        96: "24rem",
         screen: "100vh",
       },
       margin: {
