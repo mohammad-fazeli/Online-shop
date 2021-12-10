@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/footer/Footer";
 import Button from "../../components/button/Button";
 import CartItem from "./components/CartItem";
-import ReactModal from "react-modal";
+import Modal from "react-modal";
 import { increase, decrease, remove } from "./Actions/CartActions";
 
 const CartContainer = ({ cart = [], increase, decrease, remove }) => {
@@ -36,6 +36,10 @@ const CartContainer = ({ cart = [], increase, decrease, remove }) => {
     });
   }, [cart]);
 
+  useEffect(() => {
+    Modal.setAppElement("body");
+  }, []);
+
   const customStyles = {
     content: {
       top: "50%",
@@ -49,7 +53,7 @@ const CartContainer = ({ cart = [], increase, decrease, remove }) => {
 
   return (
     <div className="pt-32">
-      <ReactModal
+      <Modal
         style={customStyles}
         isOpen={isOpen}
         onRequestClose={() => {
@@ -74,7 +78,7 @@ const CartContainer = ({ cart = [], increase, decrease, remove }) => {
             />
           </div>
         </div>
-      </ReactModal>
+      </Modal>
       <Header />
       <div className=" w-11/12  xl:min-w-1280 xl:max-w-7xl mx-auto">
         <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-8 min-h-96 relative">

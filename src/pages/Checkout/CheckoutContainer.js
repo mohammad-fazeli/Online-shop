@@ -29,7 +29,9 @@ const CheckoutContainer = ({ clear }) => {
     return <Navigate replace to="/" />;
   }
 };
-const mapStateToProps = () => {};
+const mapStateToProps = () => {
+  return {};
+};
 
 const mapDispatchToProps = { clear };
 
